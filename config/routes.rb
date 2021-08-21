@@ -18,5 +18,6 @@ Rails.application.routes.draw do
   get 'entries/show'
   get 'entries/index'
   get 'top/index'
+  get 'admins/top'
   root 'top#index'
 end

@@ -1,0 +1,23 @@
+<h1>Admins#top</h1>
+<p>Find me in app/views/admins/top.html.erb</p>
+
+
+<div class="entry_wrapper">
+  <h1>入室者一覧</h1>
+  <% @entries.each do |e| %>
+    <div class="entry_container">
+      メールアドレス<%= e.user.email %>
+    </div>
+  <% end %>
+</div>
+
+<div class="exit_wrapper">
+  <h1>退出者一覧</h1>
+  <% @exits.each do |e| %>
+    <div class="exit_container">
+      メールアドレス<%= e.user.email %>
+    </div>
+  <% end %>
+</div>
+
+

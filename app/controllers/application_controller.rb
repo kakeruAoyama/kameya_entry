@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
     when User
       top_index_path
     when Admin
-      entries_index_path
+      admins_top_path
     end
   end
 end
