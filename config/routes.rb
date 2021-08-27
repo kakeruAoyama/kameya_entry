@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     registrations: 'admin/registrations'
   }
 
+  resources :paid_users, only: [:update]
+
   post 'exits/create'
   get 'exits/show'
   post 'entries/create'
