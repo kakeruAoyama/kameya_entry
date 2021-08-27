@@ -14,4 +14,15 @@ class ExitsController < ApplicationController
 
   def show
   end
+
+  def destroy
+    @exit = Exit.find(params[:id])
+    if @exit.destroy
+      flash[:success] = 'Exit was successfully deleted.'
+      redirect_to admins_top_path
+    else
+      flash[:error] = 'Something went wrong'
+      redirect_to admins_top_path
+    end
+  end
 end
