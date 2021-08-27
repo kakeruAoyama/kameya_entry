@@ -3,7 +3,9 @@ class AdminsController < ApplicationController
   layout 'admin'
 
   def top
-    @entries = Entry.where(completed: false)
-    @exits = Exit.where(completed: false)
+    @entries = Entry.preload(:user).where(completed: false)
+    @exits = Exit.preload(:user).where(completed: false)
+    @paid_yet_users = PaidUser.preload(:user).where(completed: false)
+    @paid_users = PaidUser.preload(:user).where(completed: true)
   end
 end

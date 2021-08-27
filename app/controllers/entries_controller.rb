@@ -5,7 +5,10 @@ class EntriesController < ApplicationController
   def create
     entry = Entry.new(user_id: current_user.id)
     if entry.save!
-      redirect_to entries_show_path
+      paid_user = PaidUser.new(user_id: current_user.id, entry_id: entry.id)
+      if paid_user.save!
+        redirect_to entries_show_path
+      end
     end
   end
 

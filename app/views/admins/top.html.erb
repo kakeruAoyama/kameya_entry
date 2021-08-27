@@ -1,4 +1,4 @@
-<h1>Admins#top</h1>
+<h1>管理者ページ</h1>
 <p>Find me in app/views/admins/top.html.erb</p>
 
 
@@ -6,7 +6,9 @@
   <h1>入室者一覧</h1>
   <% @entries.each do |e| %>
     <div class="entry_container">
+      <%= e.id %>:
       メールアドレス<%= e.user.email %>
+      <%= e.created_at %>
     </div>
   <% end %>
 </div>
@@ -15,7 +17,32 @@
   <h1>退出者一覧</h1>
   <% @exits.each do |e| %>
     <div class="exit_container">
+      <%= e.id %>:
       メールアドレス<%= e.user.email %>
+      <%= e.created_at %>
+    </div>
+  <% end %>
+</div>
+
+<div class="paid_yet_user_wrapper">
+  <h1>未決済者一覧</h1>
+  <% @paid_yet_users.each do |pyu| %>
+    <div class="paid_yet_user_container">
+      entry_id:<%= pyu.entry_id %>
+      exit_id:<%= pyu.exit_id %>
+      メールアドレス<%= pyu.user.email %>
+      <%= pyu.created_at %>
+      <%= button_to "決済完了",paid_user_path(pyu.id), {method: :put } if pyu.exit_id.present? %>
+    </div>
+  <% end %>
+</div>
+
+<div class="paid_user_wrapper">
+  <h1>決済者一覧</h1>
+  <% @paid_users.each do |pu| %>
+    <div class="paid_user_container">
+      メールアドレス<%= pu.user.email %>
+      <%= pu.created_at %>
     </div>
   <% end %>
 </div>
