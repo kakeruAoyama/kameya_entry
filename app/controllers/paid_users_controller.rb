@@ -1,4 +1,5 @@
 class PaidUsersController < ApplicationController
+  before_action :authenticate_admin!
   def update
     paid_user = PaidUser.find(params[:id])
     paid_user.update!(completed: true, admin_id: current_admin.id)
