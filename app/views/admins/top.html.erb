@@ -34,7 +34,7 @@
       exit_id:<%= pyu.exit_id %>
       メールアドレス<%= pyu.user.email %>
       <%= pyu.created_at %>
-      <%= button_to "決済完了",paid_user_path(pyu.id), {method: :put } if pyu.exit_id.present? %>
+      <%= button_to "決済完了",paid_user_path(pyu.id), {method: :put, data: { confirm: '本当に完了しますか?', disable_with: 'loading...' } } if pyu.exit_id.present? %>
       <%= button_to "削除する",paid_user_path(pyu.id),  {method: :delete, data: { confirm: '本当に削除しますか?', disable_with: 'loading...' }}%>
     </div>
   <% end %>
