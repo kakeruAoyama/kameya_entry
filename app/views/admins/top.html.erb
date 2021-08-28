@@ -9,6 +9,7 @@
       <%= e.id %>:
       メールアドレス<%= e.user.email %>
       <%= e.created_at %>
+      <%= button_to("削除する",entry_path(e.id), {method: :delete, data: { confirm: '本当に削除しますか?', disable_with: 'loading...' }}) %>
     </div>
   <% end %>
 </div>
@@ -20,6 +21,7 @@
       <%= e.id %>:
       メールアドレス<%= e.user.email %>
       <%= e.created_at %>
+      <%= button_to("削除する", exit_path(e.id),  {method: :delete, data: { confirm: '本当に削除しますか?', disable_with: 'loading...' }})%>
     </div>
   <% end %>
 </div>
@@ -33,6 +35,7 @@
       メールアドレス<%= pyu.user.email %>
       <%= pyu.created_at %>
       <%= button_to "決済完了",paid_user_path(pyu.id), {method: :put } if pyu.exit_id.present? %>
+      <%= button_to "削除する",paid_user_path(pyu.id),  {method: :delete, data: { confirm: '本当に削除しますか?', disable_with: 'loading...' }}%>
     </div>
   <% end %>
 </div>
