@@ -118,14 +118,25 @@ Rails.application.configure do
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 
-  config.action_mailer.raise_delivery_errors = true
-  ActionMailer::Base.delivery_method = :smtp
-  ActionMailer::Base.smtp_settings = {
-    :port           => ENV['MAILGUN_SMTP_PORT'],
-    :address        => ENV['MAILGUN_SMTP_SERVER'],
-    :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
-    :password       => ENV['MAILGUN_SMTP_PASSWORD'],
-    :domain         => 'yourapp.heroku.com',
-    :authentication => :plain,
+  config.action_mailer.perform_caching = false
+
+  config.action_mailer.default_url_options = { host: 'https://kameya-entry.herokuapp.com'}
+
+  config.action_mailer.perform_deliveries = true
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:"smtp.gmail.com",
+    domain: 'gmail.com',
+    port:587,
+    user_name: ENV['SEND_MAIL'],
+    password: ENV['GMAIL_SPECIFIC_PASSWORD'],
+    authentication: :login,
+    openssl_verify_mode: 'none',
+    enable_starttls_auto: true
   }
+
+  config.action_mailer.perform_caching = false
+
+  config.action_mailer.raise_delivery_errors = true
 end
