@@ -1,0 +1,2 @@
+class UserAttribute < ApplicationRecord
+end

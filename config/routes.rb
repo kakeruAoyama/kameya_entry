@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :paid_users, only: [:update, :destroy]
   resources :entries, only: [:destroy]
   resources :exits, only: [:destroy]
+  resources :user_attributes, only: [:new, :create, :edit, :update]
 
   post 'exits/create'
   get 'exits/show'

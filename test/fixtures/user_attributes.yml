@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: 
+  university: MyString
+  name: MyString
+  barthday: 2021-09-03
+  graduation_year: 1
+  number: 1
+  sex: 1
+
+two:
+  user: 
+  university: MyString
+  name: MyString
+  barthday: 2021-09-03
+  graduation_year: 1
+  number: 1
+  sex: 1
