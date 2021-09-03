@@ -1,42 +1,48 @@
-<h1>UserAttributes#new</h1>
-<p>Find me in app/views/user_attributes/new.html.erb</p>
+<%= stylesheet_link_tag 'login', :media => "all" %>
 
-<%= form_with model: @user_attribute, url: {controller: 'user_attributes', action: 'create' } do |f| %>
-  <div class="field">
-    <%= f.label :name, "名前" %>
-    <%= f.text_field :name %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :university, "大学名" %>
-    <%= f.text_field :university %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :department, "学部/学科" %>
-    <%= f.text_field :department %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :barthday, "生年月日" %>
-    <%= f.date_field :barthday, value: "2000-01-01" %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :graduation_year, "卒業年度" %>
-    <%= f.text_field :graduation_year %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :number, "電話番号" %>
-    <%= f.text_field :number %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :sex, "性別" %>
-    <%= f.text_field :sex %>
-  </div>
-  
-  <%= f.submit "登録する", disable_with: '登録中...' %>
-<% end %>
+<div class="login-body">
+  <main class="form-signin">
+    <%= form_with model: @user_attribute do |f| %>
+      <h1 class="h3 mb-3 fw-normal">ユーザー基本情報登録</h1>
+      <div class="field">
+        <%= f.label :name, class:"visually-hidden" %><br />
+        <%= f.text_field :name, autofocus: true, autocomplete: "name", class:"form-control", placeholder:"名前（フルネーム空白なし）",  required: true %>
+      </div>
+
+      <div class="field">
+        <%= f.label :university, class:"visually-hidden" %><br />
+        <%= f.text_field :university, autofocus: true, class:"form-control", placeholder:"大学名（正式名称）",  required: true %>
+      </div>
+
+      <div class="field">
+        <%= f.label :department, class:"visually-hidden" %><br />
+        <%= f.text_field :department, autofocus: true, class:"form-control", placeholder:"学部学科",  required: true %>
+      </div>
+
+      <div class="field">
+        <%= f.label :barthday, "生年月日", class:"mt-3" %><br />
+        <%= f.date_field :barthday, value: "2000-01-01", autofocus: true, class:"form-control", required: true %>
+      </div>
+
+      <div class="field">
+        <%= f.label :graduation_year, class:"visually-hidden" %><br />
+        <%= f.select :graduation_year, {'2021': 2021, '2022': 2022, '2023': 2023, '2024': 2024, '2025': 2025}, { include_blank: '卒業年度'}, { class: 'form-select' , required: true } %>
+      </div>
+
+      <div class="field">
+        <%= f.label :number, "電話番号", class:"mt-3" %><br />
+        <%= f.text_field :number, autofocus: true, class:"form-control", placeholder:"例)09012345678", required: true %>
+      </div>
+
+      <div class="field">
+        <%= f.label :sex, class:"visually-hidden" %><br />
+        <%= f.select :sex, {'男性': 0, '女性': 1, 'その他': 2}, { include_blank: '性別'}, { class: 'form-select' , required: true } %>
+      </div>
+    
+      <div class="actions">
+        <%= f.submit "登録", disable_with: '登録中...', class:"w-100 btn btn-lg btn-primary mt-4" %>
+      </div>
+    <% end %>
+  </main>
+</div>
 
