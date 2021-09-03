@@ -46,7 +46,7 @@
             </ul>
             <div class="d-flex text-light">
               <% if user_signed_in? %>
-                ようこそ<strong><%= current_user.user_attribute.name %></strong>！
+                ようこそ<strong><%= current_user.user_attribute&.name %></strong>！
               <% end %>
             </div>
           </div>

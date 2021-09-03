@@ -3,7 +3,7 @@ class UserAttributesController < ApplicationController
   before_action :user_attribute_done, only: [:edit, :update]
 
   def new
-    @user_attributes = UserAttribute.new
+    @user_attribute = UserAttribute.new
   end
 
   def create
