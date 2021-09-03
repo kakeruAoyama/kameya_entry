@@ -46,7 +46,7 @@
             </ul>
             <div class="d-flex text-light">
               <% if user_signed_in? %>
-                <strong><%= current_user.email %></strong>でログイン中
+                ようこそ<strong><%= current_user.user_attribute.name %></strong>！
               <% end %>
             </div>
           </div>

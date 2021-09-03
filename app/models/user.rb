@@ -5,4 +5,5 @@ class User < ApplicationRecord
 
   has_many :entris, dependent: :destroy
   has_many :exits, dependent: :destroy
+  has_one :user_attribute, dependent: :destroy
 end

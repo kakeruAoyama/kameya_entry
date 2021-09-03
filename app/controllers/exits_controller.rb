@@ -2,6 +2,7 @@ class ExitsController < ApplicationController
   protect_from_forgery
   before_action :authenticate_user!, only: [:create, :show]
   before_action :authenticate_admin!, only: [:delete]
+  before_action :user_attribute_done
   
   def create
     exit = Exit.new(user_id: current_user.id)
